@@ -21,7 +21,6 @@ use ethrex_common::{
     },
 };
 use ethrex_levm::EVMConfig;
-use ethrex_levm::account::LevmAccount;
 use ethrex_levm::call_frame::Stack;
 use ethrex_levm::constants::{
     POST_OSAKA_GAS_LIMIT_CAP, STACK_LIMIT, SYS_CALL_GAS_LIMIT, TX_BASE_COST,
@@ -29,11 +28,10 @@ use ethrex_levm::constants::{
 use ethrex_levm::db::Database;
 use ethrex_levm::db::gen_db::GeneralizedDatabase;
 use ethrex_levm::errors::{InternalError, TxValidationError};
-use ethrex_levm::gas_cost::{ACCESS_LIST_ADDRESS_COST, ACCESS_LIST_STORAGE_KEY_COST};
 #[cfg(feature = "perf_opcode_timings")]
 use ethrex_levm::timings::{OPCODE_TIMINGS, PRECOMPILES_TIMINGS};
 use ethrex_levm::tracing::LevmCallTracer;
-use ethrex_levm::utils::{create_eth_transfer_log, get_base_fee_per_blob_gas};
+use ethrex_levm::utils::get_base_fee_per_blob_gas;
 use ethrex_levm::vm::VMType;
 use ethrex_levm::{
     Environment,
